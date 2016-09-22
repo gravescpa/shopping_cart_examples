@@ -1,0 +1,212 @@
+<div id="heading-breadcrumbs">
+    <div class="container">
+    <%=session[:cart][0]%>
+        <div class="row">
+            <div class="col-md-7">
+                <h1>Checkout - Address</h1>
+            </div>
+            <div class="col-md-5">
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a>
+                    </li>
+                    <li>Checkout - Address</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 clearfix" id="checkout">
+                <div class="box">
+                    <form method="post" action="/checkout2">
+                        <ul class="nav nav-pills nav-justified">
+                            <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                            </li>
+                            <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                            </li>
+                            <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                            </li>
+                        </ul>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Firstname</label>
+                                        <input type="text" class="form-control" id="firstname" name="firstname" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Lastname</label>
+                                        <input type="text" class="form-control" id="lastname" name="lastname"  value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="company">Company</label>
+                                        <input type="text" class="form-control" id="company" name="company"  value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="street">Street</label>
+                                        <input type="text" class="form-control" id="street" name="street"  value="">
+                                    </div> 
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                            <div class="row">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" name="city"  value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="zip">ZIP</label>
+                                        <input type="text" class="form-control" id="zip" name="zip"  value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <select class="form-control" id="state" name="state">
+                                        <% options = [["AK", "Alaska"], 
+                ["AL", "Alabama"], 
+                ["AR", "Arkansas"], 
+                ["AS", "American Samoa"], 
+                ["AZ", "Arizona"], 
+                ["CA", "California"], 
+                ["CO", "Colorado"], 
+                ["CT", "Connecticut"], 
+                ["DC", "District of Columbia"], 
+                ["DE", "Delaware"], 
+                ["FL", "Florida"], 
+                ["GA", "Georgia"], 
+                ["GU", "Guam"], 
+                ["HI", "Hawaii"], 
+                ["IA", "Iowa"], 
+                ["ID", "Idaho"], 
+                ["IL", "Illinois"], 
+                ["IN", "Indiana"], 
+                ["KS", "Kansas"], 
+                ["KY", "Kentucky"], 
+                ["LA", "Louisiana"], 
+                ["MA", "Massachusetts"], 
+                ["MD", "Maryland"], 
+                ["ME", "Maine"], 
+                ["MI", "Michigan"], 
+                ["MN", "Minnesota"], 
+                ["MO", "Missouri"], 
+                ["MS", "Mississippi"], 
+                ["MT", "Montana"], 
+                ["NC", "North Carolina"], 
+                ["ND", "North Dakota"], 
+                ["NE", "Nebraska"], 
+                ["NH", "New Hampshire"], 
+                ["NJ", "New Jersey"], 
+                ["NM", "New Mexico"], 
+                ["NV", "Nevada"], 
+                ["NY", "New York"], 
+                ["OH", "Ohio"], 
+                ["OK", "Oklahoma"], 
+                ["OR", "Oregon"], 
+                ["PA", "Pennsylvania"], 
+                ["PR", "Puerto Rico"], 
+                ["RI", "Rhode Island"], 
+                ["SC", "South Carolina"], 
+                ["SD", "South Dakota"], 
+                ["TN", "Tennessee"], 
+                ["TX", "Texas"], 
+                ["UT", "Utah"], 
+                ["VA", "Virginia"], 
+                ["VI", "Virgin Islands"], 
+                ["VT", "Vermont"], 
+                ["WA", "Washington"], 
+                ["WI", "Wisconsin"], 
+                ["WV", "West Virginia"], 
+                ["WY", "Wyoming"] ]%>
+                                            <option selected="[customerinfo[0]['state']" value=""</option>
+                                        <% options.each do |option| %>
+                                            <option value=<%=option[0]%>><%=option[1]%></option>
+                                        <% end %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="phone">Telephone</label>
+                                        <input type="text" class="form-control" id="phone" name="phone"  value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" name="email" id="email"  value="">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a href="/shop_cart" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
+                            </div>
+                          <div class="pull-right">
+                                <button type="submit" class="btn btn-template-main">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col-md-9 -->
+            <div class="col-md-3">
+                <div class="box" id="order-summary">
+                    <div class="box-header">
+                        <h3>Order summary</h3>
+                    </div>
+                    <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Order subtotal</td>
+                                    <th><%=sprintf "%.2f", ordertotal%></th>
+
+                                </tr>
+                                <tr>
+                                    <td>Shipping and handling</td>
+                                    <th>$<span class="sandh">10.00</span></th>
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <th>$0.00</th>
+                                </tr>
+                                <tr class="total">
+                                    <td>Total</td>
+                                    <th><%= sprintf "%.2f",ordertotal + 10.00%></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /.col-md-3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /#content -->
